@@ -14,7 +14,7 @@ env = Env()
 env.read_env(path="/home/root/mqtt/.env")
 
 # MQTT connection
-MQTT_BROKER    = env.str("MQTT_BROKER", "192.168.3.14")
+MQTT_BROKER    = env.str("MQTT_BROKER", "")
 
 MQTT_PORT      = env.int("MQTT_PORT", 1883)
 MQTT_CLIENT_ID = env.str("MQTT_CLIENT_ID", "remi-subscriber")
@@ -44,7 +44,7 @@ for name, val in [("MQTT_TOPIC_CONTROL", MQTT_TOPIC_CONTROL),
         raise ValueError(f"{name} không hợp lệ: '{val}'")
 
 # Serial / Modbus (MYIR Remi UART)
-SERIAL_PORT      = env.str("SERIAL_PORT", "/dev/ttyUSB0")
+SERIAL_PORT      = env.str("SERIAL_PORT", "/dev/")
 SERIAL_BAUD      = env.int("SERIAL_BAUD", 9600)
 MODBUS_SLAVE_ID  = env.int("MODBUS_SLAVE_ID", 1)
 READ_RETRY       = env.int("READ_RETRY", 3)
